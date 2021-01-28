@@ -11,9 +11,10 @@ services:
    - 5432:5432
   environment:
    - POSTGRES_USER=postgres
-   - POSTGRES_PASSWORD=postgres
+   - POSTGRES_PASSWORD=AbdalrhmanAlkraien0780344248halaWalah
   volumes:
    - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+   - ./data1 :/var/lib/postgresql/data
 
 
 
@@ -24,7 +25,7 @@ services:
    environment:
     - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/book
     - SPRING_DATASOURCE_USERNAME=postgres
-    - SPRING_DATASOURCE_PASSWORD=postgres
+    - SPRING_DATASOURCE_PASSWORD=AbdalrhmanAlkraien0780344248halaWalah
     - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     - spring.datasource.platform=postgres
     - spring.datasource.initialization-mode=always
@@ -33,4 +34,5 @@ services:
    depends_on:
     - postgres
 
-
+volumes:
+  data: {}
